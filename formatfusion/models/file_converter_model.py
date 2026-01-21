@@ -11,7 +11,8 @@ class FileConverterModel(BaseModel):
     output_file: Path
 
     @field_validator("input_file")
-    def validate_input_file(self, value: Path) -> Path:
+    @classmethod
+    def validate_input_file(cls, value: Path) -> Path:
         if not os.path.isfile(value):
             raise ValueError(f"The input file '{value}' does not exist.")
         if value.suffix.lstrip(".") not in VALID_EXTENSIONS:
