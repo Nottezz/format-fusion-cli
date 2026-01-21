@@ -8,10 +8,10 @@ VALID_EXTENSIONS = {"json", "yaml", "png", "jpg"}
 
 class FileConverterModel(BaseModel):
     input_file: Path
-    output_file: Path | None = None
+    output_file: Path
 
     @field_validator("input_file")
-    def validate_input_file(cls, value: Path) -> Path:
+    def validate_input_file(self, value: Path) -> Path:
         if not os.path.isfile(value):
             raise ValueError(f"The input file '{value}' does not exist.")
         if value.suffix.lstrip(".") not in VALID_EXTENSIONS:
@@ -22,7 +22,7 @@ class FileConverterModel(BaseModel):
         return value
 
     @model_validator(mode="after")
-    def validate_file_pair(self):
+    def validate_file_pair(self) -> "FileConverterModel":
         if self.output_file:
             input_ext = self.input_file.suffix.lstrip(".")
             output_ext = self.output_file.suffix.lstrip(".")

@@ -2,6 +2,7 @@ import base64
 from pathlib import Path
 
 from formatfusion.models.file_converter_model import FileConverterModel
+
 from .base import Base
 
 
@@ -10,7 +11,7 @@ class ConverterImage(Base):
         super().__init__(input_file, output_file)
         validated_data = FileConverterModel(
             input_file=Path(input_file),
-            output_file=Path(output_file) if output_file else None,
+            output_file=Path(output_file),
         )
         self.input_file = validated_data.input_file
         self.output_file = validated_data.output_file

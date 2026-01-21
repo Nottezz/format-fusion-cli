@@ -47,4 +47,3 @@ def run_convert(opts: t.Dict[str, t.Any]) -> None:
         convert.convert_image_to_base64()
     except ValueError as e:
         logger.error(f"Validation error: {e}")
-

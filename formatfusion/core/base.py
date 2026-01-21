@@ -5,7 +5,7 @@ logger = logging.getLogger(__name__)
 
 
 class Base:
-    def __init__(self, input_file: Path, output_file: Path | None = None):
+    def __init__(self, input_file: Path, output_file: Path):
         self.input_file = input_file
         self.output_file = output_file
 
