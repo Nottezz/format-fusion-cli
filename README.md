@@ -1,45 +1,67 @@
-# Format Fusion 
+# Format Fusion
 
-This is the tool's CLI for converting various formats.
+**Format Fusion** is a CLI tool for converting various data formats: JSON, YAML, and images to Base64.
 
-## Using
+[![Python checks](https://github.com/Nottezz/format-fusion-cli/actions/workflows/python-check.yaml/badge.svg?branch=main)](https://github.com/Nottezz/format-fusion-cli/actions/workflows/python-check.yaml)
+[![PyPI version](https://img.shields.io/pypi/v/cli-format-fusion)](https://pypi.org/project/cli-format-fusion/)
 
-Format Fusion supports two commands for conversion:
+---
+
+## Installation
+
+```bash
+pip install cli-format-fusion
+```
+
+---
+## Available Commands
+
+Format Fusion supports the following conversions:
+
+| Conversion     | Command                        | Options                 |
+| -------------- | ------------------------------ | ----------------------- |
+| JSON → YAML    | `format-fusion yaml`           | `--reverse`, `--output` |
+| YAML → JSON    | `format-fusion yaml --reverse` | `--output`              |
+| Image → Base64 | `format-fusion image`          | `--output`              |
 
 
-| Name            | Commands              |
-|-----------------|-----------------------|
-| JSON to YAML    | `format-fusion yaml`  |
-| Image to Base64 | `format-fusion image` |
+> All commands support the --output option to specify the output file path.
+---
+### Usage Examples
 
-### Usage example
-Command to generate from JSON to YAML:
-
-```shell
+#### JSON → YAML
+```bash
+# Convert JSON to YAML
 format-fusion yaml D:\response_api.json
 ```
+Result: an `output.yaml` file will be created in the current directory.
 
-Or you can perform the conversion in reverse order: **from YAML to JSON**
-
-```shell
+---
+#### YAML → JSON
+```bash
+# Convert YAML back to JSON
 format-fusion yaml D:\response_api.yaml --reverse
 ```
+Result: an `output.json` file will be created.
 
-The result of executing the command will be the creation of a YAML file named `output.yaml` or a JSON file named `output.json`
+---
+#### Specify Output Path
+```
+# Save the converted file to a specific location
+format-fusion yaml D:\response_api.json --output D:\data.yaml
+```
+Result: the file will be saved to the specified path `D:\data.yaml`.
 
-Optionally, you can specify where to save the converted files:
+---
+#### Image → Base64
+```
+# Convert an image to Base64 and save to a file
+format-fusion image D:\screenshot.png --output D:\screenshot.txt
+```
 
-``
-format-fusion yaml D:\screenshot.png --output D:\data.txt
-``
+Result: a file `screenshot.txt` will be created containing the Base64-encoded content.
 
-This option is available for all commands.
-## Install 
+---
+## Useful Resources
 
-``
-pip install cli-format-fusion
-``
-
-## Resources
-
-- [Issue Tracker](https://github.com/Nottezz/format-fusion-cli/issues)
+[Issue Tracker](https://github.com/Nottezz/format-fusion-cli/issues)
