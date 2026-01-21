@@ -2,7 +2,7 @@
 name = "cli-format-fusion"
 version = "0.1.0"
 description = "A mini conversion tool"
-authors = ["R00kie <driftworks2013@yandex.ru>"]
+authors = ["Nikita Nottezz <driftworks2013@yandex.ru>"]
 packages = [
     { include = "formatfusion"},
 ]
@@ -14,9 +14,6 @@ Issues = "https://github.com/Nottezz/format-fusion-cli/issues"
 
 [tool.poetry.scripts]
 format-fusion = "formatfusion.__main__:__main__"
-lint = "scripts:lint"
-format = "scripts:format"
-test = "scripts:test"
 
 [tool.poetry.dependencies]
 python = "^3.11.0"
