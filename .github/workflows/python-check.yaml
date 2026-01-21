@@ -11,7 +11,7 @@ on:
       - formatfusion/**
 
 jobs:
-  run-check:
+  run-checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
